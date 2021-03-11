@@ -6,24 +6,14 @@ const int echoPin = 2;
 long duration;
 int distanceCm;
 int hasilSensorLDR;
-int progressBari = 0;
-int i = 0;
 
-byte progressBar[8] = {
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-};
+
+
 void setup() {
-lcd.begin(16,2); // Initializes the interface to the LCD screen, and specifies the dimensions (width and height) of the display
+lcd.begin(16,2);
 pinMode(trigPin, OUTPUT);
 pinMode(echoPin, INPUT);
-lcd.print("Hasil LDR :");
-lcd.createChar(0, progressBar);
+pinMode(A1, INPUT);
 }
 
 void loop() {
@@ -37,9 +27,9 @@ digitalWrite(trigPin, LOW);
 duration = pulseIn(echoPin, HIGH);
 distanceCm= duration*0.034/2;
 
-//lcd.setCursor(0,0); // Sets the location at which subsequent text written to the LCD will be displayed
-//lcd.print("Distance: "); // Prints string "Distance" on the LCD
-//lcd.print(distanceCm); // Prints the distance value from the sensor
+//lcd.setCursor(0,0); 
+//lcd.print("Distance: "); 
+//lcd.print(distanceCm); 
 //lcd.print("  cm");
   if ( 25 < distanceCm)
   {
@@ -74,8 +64,9 @@ distanceCm= duration*0.034/2;
   
 lcd.setCursor(0,1);
  lcd.print("Hasil LDR :");
- hasilSensorLDR = analogRead(A0);
-  //lcd.setCursor(12,0);
+ hasilSensorLDR = analogRead(A1);
+ // lcd.setCursor(12,0);
+  //lcd.print(cahaya);
   lcd.print(hasilSensorLDR);
   delay(1000);
   lcd.clear();
