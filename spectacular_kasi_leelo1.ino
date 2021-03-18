@@ -27,10 +27,7 @@ digitalWrite(trigPin, LOW);
 duration = pulseIn(echoPin, HIGH);
 distanceCm= duration*0.034/2;
 
-//lcd.setCursor(0,0); 
-//lcd.print("Distance: "); 
-//lcd.print(distanceCm); 
-//lcd.print("  cm");
+
   if ( 25 < distanceCm)
   {
     lcd.clear();
@@ -65,18 +62,10 @@ distanceCm= duration*0.034/2;
 lcd.setCursor(0,1);
  lcd.print("Hasil LDR :");
  hasilSensorLDR = analogRead(A1);
- // lcd.setCursor(12,0);
-  //lcd.print(cahaya);
   lcd.print(hasilSensorLDR);
   delay(1000);
   lcd.clear();
   delay(1000);
-  //progressBari=map(hasilSensorLDR, 0, 1000, 0, 17);
-  //for (i=0; i<progressBari; i++)
-  //{
-   //lcd.setCursor(i, 1);
-    //lcd.write(byte(0));
-  //}
 }
 }
   
